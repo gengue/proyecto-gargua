@@ -71,46 +71,18 @@
 
         <tbody>
         
-            <tr>
-                <td>1</td>
-                <td>Entiendo mejor algo</td>
-                <td>Si lo practico <input type="checkbox" class="checkthis" /></td>
-                <td>Si pienso en ello <input type="checkbox" class="checkthis" /></td>
-            </tr>
+        @foreach ($test as $value)
 
             <tr>
-                <td>2</td>
-                <td>Me considero </td>
-                <td>realista <input type="checkbox" class="checkthis" /></td>
-                <td>innovador <input type="checkbox" class="checkthis" /></td>
+                <td>{{ $value['id_test'] }}</td>
+                <td>{{ $value['pregunta'] }}</td>
+                <td> <input id="a{{$value['id_test']}}" type="checkbox" class="checkthis" />  {{ $value['respuesta_a'] }} </td>
+                <td> <input id="b{{$value['id_test']}}" type="checkbox" class="checkthis" /> {{ $value['respuesta_b'] }} </td>
             </tr>
 
-            <tr>
-                <td>3</td>
-                <td>Cuando pienso acerca de lo que hice ayer, es más probable que lo haga sobre la base de </td>
-                <td>una imagen <input type="checkbox" class="checkthis" /></td>
-                <td>palabras <input type="checkbox" class="checkthis" /></td>
-            </tr>
+        @endforeach    
 
-            <tr>
-                <td>4</td>
-                <td>Tengo tendencia a</td>
-                <td>entender los detalles de un tema pero no ver claramente su estructura completa <input type="checkbox" class="checkthis" /></td>
-                <td>entender la estructura completa pero no ver claramente los detalles <input type="checkbox" class="checkthis" /></td>
-            </tr>
 
-            <tr>
-                <td>5</td>
-                <td>pregunta 5</td>
-                <td> <input id="a5" type="checkbox" class="checkthis" /> respuesta a5 </td>
-                <td>respuesta b5 <input type="checkbox" class="checkthis" /></td>
-            </tr>
-        
-     
-        
-       
-        
-       
         
         </tbody>
             

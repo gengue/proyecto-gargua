@@ -15,7 +15,11 @@ class UsuarioController extends BaseController {
 
     public function vistaTestFelder()
     {
-        return View::make('Usuario.test');
+
+        $test = Test::all();
+
+
+        return View::make('Usuario.test', array('test' => $test));
     }
 
 }
