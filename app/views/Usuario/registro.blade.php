@@ -33,6 +33,9 @@
 
 
 
+
+<form action="" method="POST">
+
             <div class="col-md-6">
                 
                 <h3 class="dark-grey">Datos Personales</h3>
@@ -82,6 +85,7 @@
 
         
             <div class="col-md-6">
+                
                 <h3 class="dark-grey">Información de Usuario</h3>
                 
                 <div class="form-group col-lg-12">
@@ -102,6 +106,12 @@
             </div>
 
         </div>
+
+</form>
+
+
+
+
 
 
 

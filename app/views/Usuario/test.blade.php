@@ -60,7 +60,7 @@
 
 
 
-<form  accept-charset="utf-8">
+
            
       <table id="test" class="table table-bordred table-striped">
                    
@@ -97,19 +97,70 @@
         
         </tbody>
             
-</table>
-        <input id="estilo_aprendizaje" type="hidden" name="estilo_aprendizaje_usuario" value="">
+      </table>
 
 
-            <button id="evaluar_test"  class="btn btn-success" value="">Evaluar Test</button>
-            <input  id="registrar" type="submit" name="completar_registro" value="Completar registro" style="display: none;">
+     
+            
+            <div class="form-group col-lg-6">
+                    <button id="evaluar_test"  class="btn btn-success" value="">Evaluar Test</button>
+                </div>
 
-</form>
+
                 
             </div>
             
         </div>
     </div>
+
+
+
+    <div id="modal_form" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Finalizando Registro</h4>
+          </div>
+          <div class="modal-body">
+
+                <p>Tu registro en el sistema está completado, puedes seguir y comenzar a disfrutar del contenido</p>
+
+
+                <form  accept-charset="utf-8">
+                  <input id="estilo_aprendizaje" type="hidden" name="estilo_aprendizaje_usuario" value="">
+                  <button type="submit" class="btn btn-primary">Seguir</button>
+                </form>
+
+
+
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+
+
+    <div id="modal_alerta" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Alerta!!</h4>
+          </div>
+          <div class="modal-body">
+              <p>Debes completar el cuestionario !!</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+
 
 
       

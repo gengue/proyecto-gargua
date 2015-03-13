@@ -6,16 +6,19 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class Usuario extends Eloquent implements UserInterface, RemindableInterface {
+class Usuario extends Eloquent  {
 
-    use SoftDeletingTrait,
-        UserTrait,
-        RemindableTrait;
 
-    public static $table = 'usuarios';
+    public $table = 'usuarios';
 
+
+    public function cursos(){
+        return $this->belongsToMany('Curso', 'usuarios_cursos', 'id_usuario', 'id_curso');
+    }
+
+    public function estilo(){
+        return $this->belongsTo('EstiloAprendizaje', 'id_estilo_aprendizaje');
+    }
     
-
-    protected $fillable = array('nombre_usuario', 'apellido_usuario', 'email_usuario', 'password_usuario');
    
 }   

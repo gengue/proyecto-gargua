@@ -3,7 +3,11 @@ $('document').ready(function(){
     $('#evaluar_test').click(function(){
 
 
-            var estilo_aprendizaje = '';
+        if($('input:checked').length == 88){
+
+
+
+           var estilo_aprendizaje = '';
             
             var number_ref = $("input[categoria='reflexivo']:checked").length;    
             var number_act = $("input[categoria='activo']:checked").length;
@@ -36,12 +40,10 @@ $('document').ready(function(){
 
             for(var i = 0; i < diff.length ; i++){
 
-                if(mayor_f == diff[i]){
+                if(mayor_dif == diff[i]){
                     indices.push(i);
                 }
             }
-
-            alert(indices[0] + ' ' + indices[1]);
 
             
 
@@ -95,14 +97,38 @@ $('document').ready(function(){
             }else{
 
 
-                // LO QUE SE HARÍA EN CASO QUE HAYA IGUALDAD ENTRE LAS DIFERENCIAS
-
-
-
-
             }
 
-            alert(estilo_aprendizaje);
+            if(estilo_aprendizaje == ''){
+                var rand = Math.random() * 7;
+                estilo_aprendizaje = estilos[rand];
+
+                //alert('se eligió por random');
+            }
+
+
+
+            $('#estilo_aprendizaje').val(estilo_aprendizaje);
+
+            //alert(estilo_aprendizaje);
+
+
+            // Abrir Modal informando el estilo de aprendizaje , solicitando finalizar el registro 
+
+
+            // Using init options
+
+
+            $('#modal_form').modal('show');
+
+
+            
+ 
+        }else{
+
+            $('#modal_alerta').modal('show');
+
+        }
 
 
     });

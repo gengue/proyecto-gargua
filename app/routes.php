@@ -21,13 +21,54 @@
 
 Route::get('/', 'HomeController@inicio');
 
-Route::get('/login', 'UsuarioController@vistaLogin');
+Route::get('login', 'AuthController@vistaLogin');
+Route::post('login', 'AuthController@vistaLogin');
+
+
 Route::get('/registro', 'UsuarioController@vistaRegistro');
 Route::get('/test', 'UsuarioController@vistaTestFelder');
 
 
-Route::get('/cursos', 'CursoController@vistaCursos');
+Route::get('/cursos', 'CursoController@vistaCursos'); // listo
 
+
+
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+
+// RUTAS PARA PRUEBAS DE LA BASE DE DATOS
+
+
+Route::get('testdb', function(){
+
+    $usuario1 = new Usuario();
+
+    $usuario1->nombre_usuario = "pedro";
+    $usuario1->apellido_usuario = "romero";
+    $usuario1->email_usuario = "peyo@example.com";
+    $usuario1->password_usuario = Hash::make("abc123");
+    $usuario1->id_estilo_aprendizaje = 2;
+    $usuario1->save();
+
+
+});
+
+
+Route::get('listTestdb', function(){
+   
+   $usuario = Usuario::find(1);
+
+   $usuarios = DB::table('usuarios')
+                ->join('estilos_aprendizaje', 'usuarios.id_estilo_aprendizaje', '=', 'estilos_aprendizaje.id')
+                ->get();
+
+
+    $estilo = $usuario->estilo->nombre_estilo_aprendizaje; 
+
+
+    print_r($estilo);
+});
 
 
 // Route::get('/', array('as' => 'inicio', 'uses' => 'HomeController@ipaginaInicio'));

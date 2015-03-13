@@ -6,18 +6,18 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class Leccion extends Eloquent implements UserInterface, RemindableInterface {
+class Leccion extends Eloquent {
 
-    use SoftDeletingTrait,
-        UserTrait,
-        RemindableTrait;
 
-    public static $table = 'leccion';    
+    public static $table = 'lecciones';
 
-    protected $dates = ['deleted_at'];
+    public function tema(){
+        return $this->belongsTo('Tema', 'tema_id');
+    }
 
-    /*
-     *  Escribir las relaciones con las demás tablas 
-     */
+    public function objetoAprendizaje(){
+        return $this->hasMany('ObjetoAprendizaje');
+    }    
+
 
 }
