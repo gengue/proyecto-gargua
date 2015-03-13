@@ -50,17 +50,17 @@
 
 
 
-                        {{ Form::open( array('action' => 'AuthController@doLogin', 'method' => 'POST', 'role' => 'form'), array('id' => 'loginform', 'class' => 'form-horizontal')) }}  
+                        {{ Form::open( array('url' => 'login', 'method' => 'POST', 'role' => 'form'), array('id' => 'loginform', 'class' => 'form-horizontal')) }}  
 
 
                             <div style="margin-bottom: 25px" class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        {{ Form::email('email', '', ['class' => 'form-control', 'placeholder' => 'email', 'required' => 'required']) }}                                        
+                                        {{ Form::text('username_field', '', ['class' => 'form-control', 'placeholder' => 'username', 'required' => 'required']) }}                                        
                                     </div>
                                 
                             <div style="margin-bottom: 25px" class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span>
-                                        {{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'password', 'required' => 'required')) }}
+                                        {{ Form::password('password_field', array('class' => 'form-control', 'placeholder' => 'password', 'required' => 'required')) }}
                                     </div>
                                     
 
@@ -83,7 +83,7 @@
                                 <div style="margin-top:10px" class="form-group">
 
                                     <div class="col-sm-12 controls">
-                                      {{ Form::button('Login', array('type' => 'submit', 'class' => 'btn btn-success')) }}
+                                      {{ Form::submit('Login', array('class' => 'btn btn-success')) }}
                                       {{ Form::button('Facebook', array('class' => 'btn btn-primary')) }}
                                       {{ Form::button('Twitter', array('class' => 'btn btn-primary')) }} 
                                     </div>
@@ -101,6 +101,25 @@
                                         </div>
                                     </div>
                                 </div>
+
+
+
+                            <br><br><br><br>    
+
+
+                          @if(Session::has('mensaje_error'))
+                            <div class="alert alert-danger">{{ Session::get('mensaje_error') }}</div>
+                          @endif
+                            
+                          @if(Session::has('mensaje'))
+                            <div class="alert alert-success">{{ Session::get('mensaje') }}</div>
+                          @endif       
+
+
+
+
+
+
 
 
                             {{ Form::close() }}

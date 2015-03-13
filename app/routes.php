@@ -24,8 +24,8 @@ Route::get('/', 'HomeController@inicio');
 Route::get('/test', 'AuthController@vistaTestFelder');
 
 
-Route::get('login', 'AuthController@vistaLogin');
-Route::post('login', 'AuthController@doLogin');
+Route::get('login', 'AuthController@getLogin');
+Route::post('login', 'AuthController@postLogin');
 
 
 Route::get('/registro', 'AuthController@vistaRegistro');
@@ -33,14 +33,21 @@ Route::post('/registro', 'AuthController@completarRegistro');
 Route::post('/registro', 'AuthController@registroDatosPersonales');
 
 
-Route::get('/cursos', 'CursoController@vistaCursos'); // listo
-Route::get('/cursos/{id}', 'CursoController@cursoId');
+Route::group(['before' => 'auth'], function()
+{
+    Route::get('/cursos', 'CursoController@vistaCursos'); // listo
 
-Route::get('/unidad/{id}', 'UnidadController@unidadId');
+    Route::get('/cursos/{id}', 'CursoController@cursoId');
 
-Route::get('/tema/{id}', 'TemaController@temaId');
+    Route::get('/unidad/{id}', 'UnidadController@unidadId');
 
-Route::get('/leccion/{id}', 'LeccionController@leccionId');
+    Route::get('/tema/{id}', 'TemaController@temaId');
+
+    Route::get('/leccion/{id}', 'LeccionController@leccionId');
+});
+
+
+
 
 
 
@@ -57,11 +64,12 @@ Route::get('testdb', function(){
 
     $usuario1 = new Usuario();
 
-    $usuario1->nombre_usuario = "pedro";
-    $usuario1->apellido_usuario = "romero";
-    $usuario1->email_usuario = "peyo@example.com";
-    $usuario1->password_usuario = Hash::make("abc123");
-    $usuario1->id_estilo_aprendizaje = 2;
+    $usuario1->nombre_usuario = "Test";
+    $usuario1->apellido_usuario = "Prueba";
+    $usuario1->email_usuario = "test@example.com";
+    $usuario1->password_usuario = Hash::make("test");
+    $usuario1->id_estilo_aprendizaje = 1;
+    $usuario1->nickname_usuario = 'test';
     $usuario1->save();
 
 
