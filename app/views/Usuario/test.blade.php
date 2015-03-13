@@ -1,7 +1,7 @@
 @extends('layouts.contenido')
 
 @section('cabecera')
-    <title>Registro</title>
+    <title>Test de Felder</title>
 
 @stop
 
@@ -58,7 +58,10 @@
         <h4>Cuestionario</h4>
         <div class="table-responsive">
 
-                
+
+
+<form  accept-charset="utf-8">
+           
       <table id="test" class="table table-bordred table-striped">
                    
            <thead>
@@ -66,6 +69,7 @@
                <th>Pregunta</th>
                <th>Opción A</th>
                <th>Opción B</th>
+               <th></th>
            </thead>
 
 
@@ -75,9 +79,16 @@
 
             <tr>
                 <td>{{ $value['id_test'] }}</td>
+                
                 <td>{{ $value['pregunta'] }}</td>
-                <td> <input id="a{{$value['id_test']}}" type="checkbox" class="checkthis" />  {{ $value['respuesta_a'] }} </td>
-                <td> <input id="b{{$value['id_test']}}" type="checkbox" class="checkthis" /> {{ $value['respuesta_b'] }} </td>
+
+                <td> <input categoria="{{ $value['categoria_a'] }}" id="a{{$value['id_test']}}" type="checkbox" class="checkthis" />  {{ $value['respuesta_a'] }} </td>
+
+                <td> <input  categoria="{{ $value['categoria_b'] }}" id="b{{$value['id_test']}}" type="checkbox" class="checkthis" /> {{ $value['respuesta_b'] }} </td>
+
+                <td> <div name="pregunta_{{$value['id_test']}}" type="hidden" >
+                  
+                </div> </td>
             </tr>
 
         @endforeach    
@@ -87,7 +98,13 @@
         </tbody>
             
 </table>
+        <input id="estilo_aprendizaje" type="hidden" name="estilo_aprendizaje_usuario" value="">
 
+
+            <button id="evaluar_test"  class="btn btn-success" value="">Evaluar Test</button>
+            <input  id="registrar" type="submit" name="completar_registro" value="Completar registro" style="display: none;">
+
+</form>
                 
             </div>
             
@@ -123,4 +140,9 @@
         <p>&copy; GARWA 2015</p>
       </footer>
 </div>
+@stop
+
+
+@section('scripts')
+ {{ HTML::script('js/evaluar_estilo_aprendizaje.js') }} 
 @stop

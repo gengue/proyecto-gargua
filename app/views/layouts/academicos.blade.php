@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,10 +14,11 @@
    
 
     <!-- Custom styles for this template -->
-    {{ HTML::style('css/jumbotron-narrow.css') }}
+    {{ HTML::style('css/jumbotron.css') }}
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    {{ HTML::script('js/ie-emulation-modes-warning_jumbotron.js') }}
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -29,22 +31,18 @@
     @show
 
 
+
   </head>
 
   <body>
 
+    
     @section('intro')
 
     @show
 
 
-
     @section('contenido')
-
-    @show
-
-
-    @section('alert')
 
     @show
 
@@ -53,13 +51,14 @@
 
     @show
 
-    
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+
     {{ HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js') }}
-
-    @section('scripts')
-
-    @show
-
-
+    {{ HTML::script('js/bootstrap.min.js') }}
+    {{ HTML::script('js/ie10-viewport-bug-workaround.js_jumbotron') }}
+    
   </body>
 </html>

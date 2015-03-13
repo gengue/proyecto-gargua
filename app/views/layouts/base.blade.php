@@ -38,7 +38,7 @@
     {{ HTML::script('js/jquery.min.js') }}
     {{ HTML::script('js/bootstrap.min.js') }}
     {{ HTML::script('js/jquery.easing.min.js') }}
-    {{ HTML::script('js/js/jquery.min.js') }}
+    {{ HTML::script('js/jquery.min.js') }}
     {{ HTML::script('js/jquery.scrollTo.js') }}
     {{ HTML::script('js/wow.min.js') }}
     {{ HTML::script('js/custom.js') }}

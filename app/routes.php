@@ -20,9 +20,14 @@
 
 
 Route::get('/', 'HomeController@inicio');
+
 Route::get('/login', 'UsuarioController@vistaLogin');
 Route::get('/registro', 'UsuarioController@vistaRegistro');
 Route::get('/test', 'UsuarioController@vistaTestFelder');
+
+
+Route::get('/cursos', 'CursoController@vistaCursos');
+
 
 
 // Route::get('/', array('as' => 'inicio', 'uses' => 'HomeController@ipaginaInicio'));
