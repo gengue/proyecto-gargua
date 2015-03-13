@@ -21,15 +21,28 @@
 
 Route::get('/', 'HomeController@inicio');
 
+Route::get('/test', 'AuthController@vistaTestFelder');
+
+
 Route::get('login', 'AuthController@vistaLogin');
-Route::post('login', 'AuthController@vistaLogin');
+Route::post('login', 'AuthController@doLogin');
 
 
-Route::get('/registro', 'UsuarioController@vistaRegistro');
-Route::get('/test', 'UsuarioController@vistaTestFelder');
+Route::get('/registro', 'AuthController@vistaRegistro');
+Route::post('/registro', 'AuthController@completarRegistro');
+Route::post('/registro', 'AuthController@registroDatosPersonales');
 
 
 Route::get('/cursos', 'CursoController@vistaCursos'); // listo
+Route::get('/cursos/{id}', 'CursoController@cursoId');
+
+Route::get('/unidad/{id}', 'UnidadController@unidadId');
+
+Route::get('/tema/{id}', 'TemaController@temaId');
+
+Route::get('/leccion/{id}', 'LeccionController@leccionId');
+
+
 
 
 

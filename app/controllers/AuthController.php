@@ -2,6 +2,55 @@
 
 class AuthController extends BaseController {
 
+
+
+
+    public function vistaLogin()
+    {
+        return View::make('Auth.login');
+    }
+
+    public function vistaRegistro()
+    {
+        return View::make('Auth.registro');
+    }
+
+    public function doLogin(){
+        
+    }
+
+
+    public function vistaTestFelder()
+    {
+
+        $test = Test::all();
+
+
+        return View::make('Auth.test', array('test' => $test));
+    }
+
+
+    public function registroDatosPersonales(){
+
+
+        // Salvar datos personales
+
+        // enviar el id del usuario creado
+
+        return Redirect::to('test');
+    }
+
+
+    public function completarRegistro(){
+
+
+        // Salvar estilo aprendizaje y poner activo al usuario
+
+        return Redirect::to('login');
+    }
+
+
+
     public function getLogin() {
         // Verificamos que el usuario no esté autenticado
         if (Auth::check()) {

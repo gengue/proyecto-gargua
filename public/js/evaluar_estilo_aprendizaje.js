@@ -5,9 +5,7 @@ $('document').ready(function(){
 
         if($('input:checked').length == 88){
 
-
-
-           var estilo_aprendizaje = '';
+            var estilo_aprendizaje = '';
             
             var number_ref = $("input[categoria='reflexivo']:checked").length;    
             var number_act = $("input[categoria='activo']:checked").length;
@@ -121,6 +119,8 @@ $('document').ready(function(){
 
             $('#modal_form').modal('show');
 
+           
+
 
             
  
@@ -129,6 +129,20 @@ $('document').ready(function(){
             $('#modal_alerta').modal('show');
 
         }
+
+
+
+
+
+            
+
+
+
+
+
+
+
+        
 
 
     });
