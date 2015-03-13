@@ -17,7 +17,7 @@ class EstiloAprendizaje extends Eloquent {
 
     public function objetoAprendizaje(){
         $this->hasMany('ObjetoAprendizaje');
-    }    
+    }
 
 
 }

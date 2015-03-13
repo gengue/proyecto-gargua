@@ -4,14 +4,14 @@
     <title>Inicio</title>
 
     <!-- Bootstrap Core CSS -->
-    
+
 
     <!-- Fonts -->
-    
+
 
     <!-- Squad theme CSS -->
 
-    
+
 
     {{ HTML::style('css/bootstrap.min.css') }}
 
@@ -92,6 +92,6 @@
 
 @section('footer')
 
- 
+
 
 @stop

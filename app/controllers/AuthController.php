@@ -29,10 +29,10 @@ class AuthController extends BaseController {
 
     public function postLogin(){
 
-
+            //return Input::all();
         $rules = array(
-            'username_field' => 'required',
-            'password_field' => 'required'
+            'email' => 'required',
+            'password' => 'required'
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -44,22 +44,26 @@ class AuthController extends BaseController {
                             ->withInput();
         } else {
 
-            $data = [
-            'password_usuario' => Input::get('password_field'),
-            'nickname_usuario' => Input::get('username_field')
-            ];
+            $data = array(
+                'email' => Input::get('email'),
+                'password' => Input::get('password')
+            );
 
             if (Auth::attempt($data))
             {
-                return Redirect::intended('/cursos');
+                return Redirect::to('/cursos');
             }
             return Redirect::to('login')
                             ->with('mensaje_error', 'Tus datos son incorrectos')
-                             ->withInput(Input::except('password'));
-        } 
+                             ->withInput(Input::except('password_field'));
+        }
 
     }
 
+    public function getLogout(){
+        Auth::logout();
+        return Redirect::to('login')->with('mensaje', 'Ha cerrado sesion!');
+    }
 
     public function vistaTestFelder()
     {

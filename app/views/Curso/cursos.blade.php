@@ -10,7 +10,7 @@
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
-        
+
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -24,8 +24,15 @@
         <div class="header">
                 <nav>
                   <ul class="nav nav-pills pull-right">
+
+                   @if (Auth::check())
+
+                        <li><a href="{{ URL::to('logout') }}">Cerrar sesion</a></li>
+                    @else
+                        <li role="presentation" ><a href="{{ URL::to('login') }}">Login</a></li>
+                    @endif
+
                     <li role="presentation" class=""><a href="{{ URL::to('') }}">Inicio</a></li>
-                    <li role="presentation" ><a href="{{ URL::to('login') }}">Login</a></li>
                   </ul>
                 </nav>
           </div>

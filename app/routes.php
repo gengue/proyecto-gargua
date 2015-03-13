@@ -26,6 +26,7 @@ Route::get('/test', 'AuthController@vistaTestFelder');
 
 Route::get('login', 'AuthController@getLogin');
 Route::post('login', 'AuthController@postLogin');
+Route::get('logout', 'AuthController@getLogout');
 
 
 Route::get('/registro', 'AuthController@vistaRegistro');
@@ -62,22 +63,26 @@ Route::group(['before' => 'auth'], function()
 
 Route::get('testdb', function(){
 
+    $estilo = new EstiloAprendizaje;
+    $estilo->nombre_estilo_aprendizaje = 'estilo rcn';
+    $estilo->save();
+
     $usuario1 = new Usuario();
 
     $usuario1->nombre_usuario = "Test";
     $usuario1->apellido_usuario = "Prueba";
-    $usuario1->email_usuario = "test@example.com";
-    $usuario1->password_usuario = Hash::make("test");
-    $usuario1->id_estilo_aprendizaje = 1;
-    $usuario1->nickname_usuario = 'test';
+    $usuario1->email = "test@example.com";
+    $usuario1->password = Hash::make("test");
+    $usuario1->id_estilo_aprendizaje = $estilo->id;
+     //este campo no existe en la bd
+     //$usuario1->nickname_usuario = 'test';
     $usuario1->save();
-
 
 });
 
 
 Route::get('listTestdb', function(){
-   
+
    $usuario = Usuario::find(1);
 
    $usuarios = DB::table('usuarios')
@@ -85,7 +90,7 @@ Route::get('listTestdb', function(){
                 ->get();
 
 
-    $estilo = $usuario->estilo->nombre_estilo_aprendizaje; 
+    $estilo = $usuario->estilo->nombre_estilo_aprendizaje;
 
 
     print_r($estilo);

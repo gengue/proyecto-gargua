@@ -26,8 +26,8 @@ return array(
 	|
 	*/
 
-	'default' => 'mysql',
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+	'default' => 'gengue',
+
 	/*
 	|--------------------------------------------------------------------------
 	| Database Connections
@@ -47,11 +47,21 @@ return array(
 	'connections' => array(
 
 		'sqlite' => array(
-			'driver'   => 'sqlite',
-			'database' => __DIR__.'/../database/production.sqlite',
-			'prefix'   => '',
-		),
-
+            'driver'   => 'sqlite',
+            'database' => __DIR__.'/../database/production.sqlite',
+            'prefix'   => '',
+        ),
+        'gengue' => array(
+            'driver'    => 'mysql',
+            'host'      => 'localhost',
+            'database'  => 'gargua_db',
+            'username'  => 'root',
+            'password'  => 'root',
+            'charset'   => 'utf8',
+            'unix_socket'   => '/Applications/MAMP/tmp/mysql/mysql.sock',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+        ),
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
